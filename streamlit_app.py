@@ -30,12 +30,12 @@ model.load_state_dict(torch.load("vae_mnist.pth", map_location=torch.device('cpu
 model.eval()
 
 # ======= Streamlit UI =======
-st.title("🧠 Generador de Dígitos Manuscritos")
-st.write("Este generador usa un modelo VAE entrenado desde cero con MNIST.")
+st.title("🧠 Digit Generator")
+st.write("This generator uses a VAE model trained from scratch with MNIST.")
 
 # Selector de dígito (aunque no está condicionado, es parte del UI)
-digit = st.selectbox("Seleccioná un dígito (0–9):", list(range(10)))
-st.write(f"Mostrando 5 imágenes generadas para el dígito {digit} (no condicionado)")
+digit = st.selectbox("Select the digit (0–9):", list(range(10)))
+st.write(f"Showing 5 images generated for the digit {digit} (unconditioned)")
 
 # Generar y mostrar imágenes
 fig, axs = plt.subplots(1, 5, figsize=(10, 2))
